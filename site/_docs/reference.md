@@ -1508,20 +1508,18 @@ passed to the aggregate function.
 | STDDEV_SAMP( [ ALL &#124; DISTINCT ] numeric) | Returns the sample standard deviation of *numeric* across all input values
 | VAR_POP( [ ALL &#124; DISTINCT ] value)       | Returns the population variance (square of the population standard deviation) of *numeric* across all input values
 | VAR_SAMP( [ ALL &#124; DISTINCT ] numeric)    | Returns the sample variance (square of the sample standard deviation) of *numeric* across all input values
+| CORR(numeric1, numeric2)           | Returns the the correlation coefficient, defined as the ratio of the population covariance divided by the product of the population standard deviation of the independent expression and the population standard deviation of dependent expression
 | COVAR_POP(numeric1, numeric2)      | Returns the population covariance of the pair (*numeric1*, *numeric2*) across all input values
 | COVAR_SAMP(numeric1, numeric2)     | Returns the sample covariance of the pair (*numeric1*, *numeric2*) across all input values
+| REGR_AVGX(numeric1, numeric2)      | Returns the average of the independent expression in a linear regression model
+| REGR_AVGY(numeric1, numeric2)      | Returns the average of the dependent expression in a linear regression model
+| REGR_COUNT(numeric1, numeric2)     | Returns the number of rows where both dependent and independent expresions are not null
+| REGR_INTERCEPT(numeric1, numeric2) | Returns the the y-intercept of the least-squares-fit linear equation determined by the (independent expression, dependent expression) pairs in a linear regression model
+| REGR_R2(numeric1, numeric2)        | Returns the square of the correlation coefficient in a linear regression model
+| REGR_SLOPE(numeric1, numeric2)     | Returns the slope of the least-squares-fit linear equation determined by the (independent expression, dependent expression) pairs in a linear regression model
 | REGR_SXX(numeric1, numeric2)       | Returns the sum of squares of the dependent expression in a linear regression model
+| REGR_SXY(numeric1, numeric2)       | Returns the sum of products of the independent expression times dependent expression in a linear regression model
 | REGR_SYY(numeric1, numeric2)       | Returns the sum of squares of the independent expression in a linear regression model
-
-Not implemented:
-
-* REGR_AVGX(numeric1, numeric2)
-* REGR_AVGY(numeric1, numeric2)
-* REGR_COUNT(numeric1, numeric2)
-* REGR_INTERCEPT(numeric1, numeric2)
-* REGR_R2(numeric1, numeric2)
-* REGR_SLOPE(numeric1, numeric2)
-* REGR_SXY(numeric1, numeric2)
 
 ### Window functions
 
@@ -1551,7 +1549,7 @@ Not implemented:
 * LAST_VALUE(value) IGNORE NULLS OVER window
 * PERCENT_RANK(value) OVER window
 * CUME_DIST(value) OVER window
-* NTH_VALUE(value, nth) [ FROM { FIRST | LAST } ] IGNORE NULLS OVER window
+* NTH_VALUE(value, nth) [ FROM { FIRST &#124; LAST } ] IGNORE NULLS OVER window
 
 ### Grouping functions
 
